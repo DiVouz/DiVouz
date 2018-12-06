@@ -1,2 +1,2 @@
 # DiVouz
-Personal Website / Resume
+Personal Website / Resume.
