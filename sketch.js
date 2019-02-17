@@ -4,10 +4,8 @@ let particles = [];
 let maxOpacity;
 
 function setup() {
-	canvas = createCanvas(window.innerWidth,window.innerHeight);
+  canvas = createCanvas(window.innerWidth,window.innerHeight);
   canvas.class("canvas");
-  //frameRate(30);
-  //background(20,20,20);
   particlesNum = window.innerWidth * window.innerHeight / 30000;
 
 
@@ -16,8 +14,6 @@ function setup() {
   }
 
   maxOpacity = 200;
-  
-
 }
 
 
@@ -27,10 +23,10 @@ function draw(){
 
   for(var i = 0; i < particles.length;i++){
     
-    // if(mouseDist(particles[i]) < 200){
-    //   ellipse(mouseX,mouseY,1.5,1.5);
-    //   line(particles[i].x,particles[i].y,mouseX,mouseY);
-    // }
+    if(mouseDist(particles[i]) < 200){
+      ellipse(mouseX,mouseY,1.5,1.5);
+      line(particles[i].x,particles[i].y,mouseX,mouseY);
+    }
     
     particles[i].draw();
   }
@@ -43,6 +39,10 @@ function draw(){
       }
     }
   }
+}
+
+function windowResized() {
+	resizeCanvas(window.innerWidth,window.innerHeight);
 }
 
 function Particle(){
