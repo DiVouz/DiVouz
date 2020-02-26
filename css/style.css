@@ -112,6 +112,12 @@ a {
     text-align: center;
 }
 
+@media (max-width: 500px) {
+	.separator {
+		width: 90%;
+	}
+}
+
 .separator::before, .separator::after {
     content: '';
     flex: 1;
