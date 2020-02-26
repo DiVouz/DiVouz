@@ -49,8 +49,8 @@ function Particle(){
   this.x = random(window.innerWidth);
   this.y = random(window.innerHeight);
 
-  this.dx = (1 / random(40,128) * (random(2) -1));
-  this.dy = (1 / random(40,128) * (random(2) -1));
+  this.dx = (1 / random(90, 128) * (random(2) -1));
+  this.dy = (1 / random(90, 128) * (random(2) -1));
 
   this.draw = function(){
     this.x += this.dx * frameRate();

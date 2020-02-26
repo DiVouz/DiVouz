@@ -1,0 +1,182 @@
+:root {
+  --main-background-color: #141414;
+
+  --main-first-color: #ffffff;
+  --main-second-color: #000000;
+
+  --link-color: #0078e7;
+}
+
+.canvas {
+ 	position: fixed;
+    top: 0;
+    right: 0;
+   	bottom: 0;
+    left: 0;
+    z-index: -1
+}
+
+html, body {
+	width:100%;
+	margin: 0;
+	padding: 0;
+
+	font-family: monospace;
+	font-weight: 400;
+	font-size: 12pt;
+	color: var(--main-first-color);
+
+	text-align: center;
+}
+
+body {
+	background-color: var(--main-background-color);
+}
+
+a {
+	cursor: pointer;
+	color: var(--link-color);
+}
+
+.marginTop {
+	margin-top: 16px;
+}
+
+.marginTopBig {
+	margin-top: 64px;
+}
+
+.personal_img {
+	height: 100%;
+	width: auto;
+
+	max-height: 35vh;
+}
+
+.text_title {
+	font-size: 2.5em;
+	font-weight: bold;
+}
+
+.text_subtitle {
+	font-size: 1.5em;
+}
+
+.social_row {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.div_social {
+	margin: 8px 16px;
+	padding: 8px;
+}
+
+.div_social a {
+	font-size: 1.1em;
+	color: var(--main-first-color);
+	text-decoration: none;
+}
+
+.social_img {
+	width: 150px;
+	height: auto;
+}
+
+.social_text {
+	margin-top: 8px;
+}
+
+.contect_projects {
+	margin: 64px 0;
+	padding: 16px 8px;
+	
+	border-top: 2px solid var(--main-first-color);
+	border-bottom: 2px solid var(--main-first-color);
+
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+.project {
+	margin-bottom: 32px;
+}
+
+.separator {
+	width: 65%;
+	margin:auto;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.separator::before, .separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 2px solid var(--main-first-color);
+    border-left: 2px solid var(--main-first-color);
+    border-right: 2px solid var(--main-first-color);
+}
+
+.separator::before {
+    margin-right: .25em;
+}
+
+.separator::after {
+    margin-left: .25em;
+}
+
+.projects_title {
+	font-size: 2em;
+	font-weight: bold;
+}
+
+.projects_row {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.div_project {
+	margin: 8px;
+	max-width: 500px;
+}
+
+.div_project_games {
+	max-width: 350px;
+}
+
+.project_card {
+	background-color: var(--main-first-color);
+	color: var(--main-second-color);
+
+	border-radius: 6px;
+
+	height: 100%;
+}
+
+.project_card img {
+	width: 100%;
+	max-width: 500px;
+	height: auto;
+
+	border-radius: 5px 5px 0 0; 
+}
+
+.project_text {
+	padding: 4px 8px;
+}
+
+.project_title {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+.project_description {
+	margin-top: 8px;
+	font-size: 1.1em;
+	text-align: justify;
+}
