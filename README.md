@@ -1,3 +1,3 @@
 # DiVouz
 Personal Website / Resume.
-divouz.github.io/divouz/
+https://divouz.github.io/DiVouz/
