@@ -47,8 +47,8 @@ a {
 }
 
 .personal_img {
-	height: 100%;
-	width: auto;
+	width: 200px;
+	height: 200px;
 
 	max-height: 30vh;
 
@@ -84,7 +84,7 @@ a {
 }
 
 .social_img {
-	width: 150px;
+	width: 100px;
 	height: auto;
 }
 
@@ -173,12 +173,15 @@ a {
 	height: 100%;
 }
 
-.project_card img {
-	width: 100%;
-	max-width: 500px;
-	height: auto;
+.project_card img {	
+	display: block;
 
-	border-radius: 5px 5px 0 0; 
+    width: 100%;
+    height: 350px;
+    
+    object-fit: cover;
+
+	border-radius: 5px 5px 0 0;
 }
 
 .project_text {
