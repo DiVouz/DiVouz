@@ -5,7 +5,7 @@ let maxOpacity;
 
 function setup() {
     canvas = createCanvas(window.innerWidth, window.innerHeight);
-    canvas.class("canvas");
+    canvas.class('canvas');
     particlesNum = window.innerWidth * window.innerHeight / 30000;
 
     for (var i = 0; i < particlesNum; i++) {
@@ -44,15 +44,26 @@ function Particle() {
     this.x = random(window.innerWidth);
     this.y = random(window.innerHeight);
 
-    this.dx = (1 / random(90, 128) * (random(2) - 1));
-    this.dy = (1 / random(90, 128) * (random(2) - 1));
+    this.dx = (1 / random(100, 1000) * (random(2) - 1));
+    this.dy = (1 / random(100, 1000) * (random(2) - 1));
 
     this.draw = function() {
         this.x += this.dx * frameRate();
         this.y += this.dy * frameRate();
 
-        if (this.x >= window.innerWidth || this.x <= 0) this.dx = -this.dx;
-        if (this.y >= window.innerHeight || this.y <= 0) this.dy = -this.dy;
+        if (this.x >= window.innerWidth || this.x <= 0) {
+            this.dx = -this.dx;
+
+            if (this.x >= window.innerWidth + 15) this.x = window.innerWidth;
+            if (this.x <= 0 + 15) this.x = 0;
+        }
+
+        if (this.y >= window.innerHeight || this.y <= 0) {
+            this.dy = -this.dy;
+
+            if (this.y >= window.innerHeight + 15) this.y = window.innerWidth;
+            if (this.y <= 0 + 15) this.y = 0;
+        }
 
         stroke(255, maxOpacity);
         ellipse(this.x, this.y, 1.5, 1.5);
