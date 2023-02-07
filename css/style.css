@@ -247,6 +247,23 @@ a {
 	max-width: 350px;
 }
 
+.div_project_fivem {
+	max-width: 450px;
+}
+
+.project_extraPhotos {
+
+}
+
+.project_extraPhotos > img {
+	display: block;
+    width: 100%;
+    height: 350px;
+	margin-top: 8px;
+    object-fit: contain;
+	border-radius: 5px;
+}
+
 .project_card {
 	background-color: var(--main-first-color);
 	color: var(--main-second-color);
@@ -256,7 +273,7 @@ a {
 	height: 100%;
 }
 
-.project_card img {	
+.project_card > a > img {	
 	display: block;
 
     width: 100%;
@@ -268,6 +285,7 @@ a {
 }
 
 .project_text {
+	position: relative;
 	padding: 4px 8px;
 }
 
