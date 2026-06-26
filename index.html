@@ -1,219 +1,109 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<meta name="description" content="Personal Website / Resume">
-		<meta name="keywords" content="Dimitris Vouzaxakis, Vouzaxakis, Personal, Website, Resume, Developer, Portofolio">
+		<meta name="description" content="Software engineer specializing in web development, game development, and software development.">
+		<meta name="keywords" content="Dimitris Vouzaxakis, DiVouz, Developer">
 		<meta name="author" content="Dimitris Vouzaxakis">
 		
-		<link rel="icon" href="images/personal_img.png">
+		<link rel="icon" href="images/divouz.png">
 		<title>Dimitris Vouzaxakis</title>
-
-		<script language="javascript" type="text/javascript" src="js/libraries/p5.min.js"></script>
-		<script language="javascript" type="text/javascript" src="js/libraries/p5.dom.min.js"></script>
-
-		<script language="javascript" type="text/javascript" src="js/sketch.js"></script>
 
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 
 	<body>
-		<div class="marginTop">
-			<img src="images/personal_img.png" class="personal_img">
-		</div>
+		<main class="profile">
+			<div class="identity_row" aria-label="Dimitris Vouzaxakis and DiVouz identities">
+				<div class="identity_item">
+					<img src="images/dimitris.jpg" alt="Dimitris Vouzaxakis" class="identity_img identity_photo">
+					<span>Dimitris Vouzaxakis</span>
+				</div>
+				<img src="images/cross.svg" alt="" class="identity_x" aria-hidden="true">
+				<div class="identity_item">
+					<img src="images/divouz.png" alt="DiVouz" class="identity_img identity_logo">
+					<span>DiVouz</span>
+				</div>
+			</div>
 
-		<div>
-			<!-- https://codepen.io/kevinpowell/pen/YzqerQm -->
-			<span class="text_subtitle">
-				<span aria-hidden="true">DiVouz</span>
-				DiVouz
-				<span aria-hidden="true">DiVouz</span>
-			</span>
+			<div class="intro" aria-label="Professional summary"><span>Software Engineer</span><span>Based in Greece</span><span>Freelance</span></div>
+			<div class="expertise" aria-label="Expertise">
+				<span><span class="expertise_icon" aria-hidden="true">&lt;/&gt;</span>Web Development</span>
+				<span><span class="expertise_icon" aria-hidden="true">[]</span>Game Development</span>
+				<span><span class="expertise_icon" aria-hidden="true">{ }</span>Software Development</span>
+			</div>
 
-			<br>
+			<nav class="social_links" aria-label="Contact links">
+				<a href="mailto:divouz@outlook.com">
+					<span class="social_name">Email</span>
+					<img src="images/email.png" alt="" class="social_img">
+					<span class="social_handle">divouz<br>@outlook.com</span>
+				</a>
+				<a href="https://www.linkedin.com/in/dimitris-vouzaxakis/" target="_blank" rel="noopener">
+					<span class="social_name">LinkedIn</span>
+					<img src="images/linkedin.png" alt="" class="social_img">
+					<span class="social_handle">/dimitris-<br>vouzaxakis</span>
+				</a>
+				<a href="https://github.com/DiVouz/" target="_blank" rel="noopener">
+					<span class="social_name">GitHub</span>
+					<img src="images/github.png" alt="" class="social_img">
+					<span class="social_handle">/DiVouz</span>
+				</a>
+				<a href="https://discord.com/users/325475112071593996" target="_blank" rel="noopener">
+					<span class="social_name">Discord</span>
+					<img src="images/discord.png" alt="" class="social_img">
+					<span class="social_handle">divouz</span>
+				</a>
+				<a href="https://www.facebook.com/vouzaxakis.dimitris/" target="_blank" rel="noopener">
+					<span class="social_name">Facebook</span>
+					<img src="images/facebook.png" alt="" class="social_img">
+					<span class="social_handle">/vouzaxakis.<br>dimitris</span>
+				</a>
+				<a href="https://www.instagram.com/dimitris.vouzaxakis/" target="_blank" rel="noopener">
+					<span class="social_name">Instagram</span>
+					<img src="images/instagram.png" alt="" class="social_img">
+					<span class="social_handle">/dimitris.<br>vouzaxakis</span>
+				</a>
+			</nav>
+		</main>
 
-			<span class="text_title">Dimitris Vouzaxakis</span>
-		</div>
-
-		<div class="social_row marginTopBig">
-			<div class="social_row">
-				<div class="div_social">
-					<a href="mailto: divouz@outlook.com">
-						<img src="images/social_media/email_logo.png" class="social_img">
-						<div class="social_text">divouz@outlook.com</div>
+		<section class="lualua_card" aria-label="Lua-Lua Scripts">
+			<div class="lualua_header">
+				<a class="lualua_logo_link" href="https://lualua.tebex.io/" target="_blank" rel="noopener" aria-label="Lua-Lua Scripts website">
+					<img src="images/lualua-icononly.png" alt="" class="lualua_icon">
+				</a>
+				<div class="lualua_title_group">
+					<h2>Lua-Lua Scripts</h2>
+					<p class="lualua_role">Founder & Developer | Since 2021</p>
+				</div>
+			</div>
+			<div class="lualua_content">
+				<p>Lua-Lua Scripts is a FiveM shop selling configurable resources and scripts for server owners who want polished features, practical setup, and support after purchase.</p>
+				<div class="lualua_features" aria-label="Lua-Lua Scripts features">
+					<span>1000+ purchases</span>
+					<span>Live Chat Discord support</span>
+					<span>Highly configurable configs</span>
+				</div>
+				<div class="social_links lualua_links" aria-label="Lua-Lua Scripts links">
+					<a href="https://lualua.tebex.io/" target="_blank" rel="noopener">
+						<span class="social_name">Store</span>
+						<img src="images/tebex.png" alt="" class="social_img">
+						<span class="social_handle">lualua.tebex.io</span>
+					</a>
+					<a href="https://www.youtube.com/@lua-lua_scripts" target="_blank" rel="noopener">
+						<span class="social_name">YouTube</span>
+						<img src="images/youtube.png" alt="" class="social_img">
+						<span class="social_handle">@lua-lua_scripts</span>
+					</a>
+					<a href="https://discord.gg/HeXUN7tCHE" target="_blank" rel="noopener">
+						<span class="social_name">Discord</span>
+						<img src="images/discord.png" alt="" class="social_img">
+						<span class="social_handle">Lua-Lua Scripts | FiveM</span>
 					</a>
 				</div>
-
-				<div class="div_social">
-					<a href="https://www.linkedin.com/in/dimitris-vouzaxakis/" target="_blank">
-						<img src="images/social_media/linkedin_logo.png" class="social_img">
-						<div class="social_text">/dimitris-vouzaxakis</div>
-					</a>
-				</div>
-
-				<div class="div_social">
-					<a href="https://github.com/DiVouz/" target="_blank">
-						<img src="images/social_media/github_logo.png" class="social_img">
-						<div class="social_text">/DiVouz</div>
-					</a>
-				</div>
 			</div>
-			<div class="social_row">
-				<div class="div_social">
-					<a href="https://www.facebook.com/vouzaxakis.dimitris/" target="_blank">
-						<img src="images/social_media/facebook_logo.png" class="social_img">
-						<div class="social_text">/vouzaxakis.dimitris</div>
-					</a>
-				</div>
-
-				<div class="div_social">
-					<a href="https://www.instagram.com/dimitris.vouzaxakis/" target="_blank">
-						<img src="images/social_media/instagram_logo.png" class="social_img">
-						<div class="social_text">/dimitris.vouzaxakis</div>
-					</a>
-				</div>
-			</div>
-		</div>
-
-		<div class="contect_projects">
-			<div class="cmd">
-				<span class="cmd_col">root@website</span><span>:</span><span class="cmd_col">~</span><span>$</span>
-				cd <span class="cmd_cd">Projects/</span>
-			</div>
-
-			<div class="project">
-				<div class="separator projects_title">Websites</div>
-
-				<div class="projects_row">
-					<div class="div_project">
-						<div class="project_card">
-							<a href="https://meliaapartments.com/" target="_blank">
-								<img src="images/websites/meliaapartments_img.jpg">
-							</a>
-							<div class="project_text">
-								<div class="project_title"><a href="https://meliaapartments.com/" target="_blank">Melia Apartments</a></div>
-								<div class="project_description">Melia apartments are situated in the seaside settlement of Loutraki, on Skopelos island. Built just in front of the sea, they are the ideal choice for relaxing family holidays in a peaceful and natural environment.</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="div_project">
-						<div class="project_card">
-							<a href="https://villamalenaskopelos.com/" target="_blank">
-								<img src="images/websites/villamalena_img.jpg">
-							</a>
-							<div class="project_text">
-								<div class="project_title"><a href="https://villamalenaskopelos.com/" target="_blank">Villa Malena</a></div>
-								<div class="project_description">Malena is a newly built luxury, spacious villa with private swimming pool, set in a picturesque, quiet location, less than one kilometre from the traditional Greek village of Glossa.</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="project">
-				<div class="separator projects_title">Android Games</div>
-
-				<div class="projects_row">
-					
-					<div class="div_project div_project_games">
-						<div class="project_card">
-							<a href="https://play.google.com/store/apps/details?id=com.avoupavou.orbitplanets" target="_blank">
-								<img src="images/games/orbitplanets_img.png">
-							</a>
-							<div class="project_text">
-								<div class="project_title"><a href="https://play.google.com/store/apps/details?id=com.avoupavou.orbitplanets" target="_blank">Orbit Planets</a></div>
-								<div class="project_description">Overcome Gravity. Overcome Gravity and fly to distant planets Avoid Asteroids rain and Black holes. Navigate your spacecraft.</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="div_project div_project_games">
-						<div class="project_card">
-							<a href="https://play.google.com/store/apps/details?id=com.avoupavou.SkillDots" target="_blank">
-								<img src="images/games/skilldots_img.png">
-							</a>
-							<div class="project_text">
-								<div class="project_title"><a href="https://play.google.com/store/apps/details?id=com.avoupavou.SkillDots" target="_blank">Skill Dots</a></div>
-								<div class="project_description">There is only one rule, stay alive. Move the dots to avoid the obstacles through the never ending world. Collect coins to get unique ball skins.</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="project" id="fivem_projects">
-				<div class="separator projects_title">FiveM Resources</div>
-
-				<div class="projects_row">
-					<div class="div_project div_project_fivem">
-						<div class="project_card">
-							<a href="https://youtu.be/sLDANST1uEs" target="_blank">
-								<img src="images/fivem/vending_machines/thumbnail.png">
-							</a>
-							<div class="project_text">
-								<div class="project_title"><a href="https://lualua.tebex.io/package/5139956" target="_blank">Vending Machines</a></div>
-								<div class="project_description">
-									This resource makes use of the vending machines that already exist in the GTA V game.
-									<br><br>Minimal and easy to use UI for purchasing / managing the products of vending machines.
-									You can easily place your own vending machine with an internal placing method.
-									Every vending machine has its own storage for products and money.
-									An interactive way to extract products from the vending machine that any nearby player can pick up.
-									<br>The resource is highly configurable to meet anyone's anticipations.
-								</div>
-								<div class="project_extraPhotos">
-									<img src="images/fivem/vending_machines/menu.png">
-									<img src="images/fivem/vending_machines/placement.png">
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="div_project div_project_fivem">
-						<div class="project_card">
-							<a href="https://youtu.be/d6BNILEzi5c" target="_blank">
-								<img src="images/fivem/mechanic/thumbnail.png">
-							</a>
-							<div class="project_text">
-								<div class="project_title"><a href="https://lualua.tebex.io/package/4392113" target="_blank">Mechanic</a></div>
-								<div class="project_description">
-									This is a mechanic script that allows you to modify your vehicle's visual and mechanical parts.
-									<br>This script has all the available visual modifications that GTA V provides, including a nice and user friendly UI.
-								</div>
-								<div class="project_extraPhotos">
-									<img src="images/fivem/mechanic/stats.png">
-									<img src="images/fivem/mechanic/color_picker.png">
-									<img src="images/fivem/mechanic/upgrades.png">
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="div_project div_project_fivem">
-						<div class="project_card">
-							<a href="https://youtu.be/07QM-2vyquQ" target="_blank">
-								<img src="images/fivem/receipt_system/thumbnail.png">
-							</a>
-							<div class="project_text">
-								<div class="project_title"><a href="https://lualua.tebex.io/package/4378316" target="_blank">Receipt System</a></div>
-								<div class="project_description">
-									This resource is made to help shops show, manage and sell their products in a user friendly environment.
-									<br><br>Boss can easily add, remove, change the price, the order and the income percentage of every item in the catalogue. 
-									<br><br>Employee can sell any item in the catalogue to any player near him.
-									<br><br>Customers can see the catalogue of every shop.
-								</div>
-								<div class="project_extraPhotos">
-									<img src="images/fivem/receipt_system/boss_choose.png">
-									<img src="images/fivem/receipt_system/employee_choose.png">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<script language="javascript" type="text/javascript" src="js/main.js"></script>
+		</section>
 	</body>
 </html>
