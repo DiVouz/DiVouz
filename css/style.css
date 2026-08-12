@@ -406,6 +406,196 @@ a {
 	color: var(--lualua-accent-color);
 }
 
+.websites_card {
+	--websites-accent-color: #7db7ff;
+	--websites-accent-border: rgba(125, 183, 255, 0.42);
+	--websites-accent-bg: rgba(125, 183, 255, 0.08);
+	display: flex;
+	width: min(100%, var(--profile-max-width));
+	flex-direction: column;
+	gap: 20px;
+	padding: 20px;
+	border: 1px solid var(--websites-accent-border);
+	border-radius: var(--profile-radius);
+	background: var(--panel-color);
+	box-shadow: 0 18px 50px rgba(0, 0, 0, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+	backdrop-filter: blur(16px);
+	text-align: left;
+}
+
+.websites_header {
+	text-align: center;
+}
+
+.websites_header h2,
+.website_item h3,
+.website_item p {
+	margin: 0;
+}
+
+.websites_header h2 {
+	font-size: clamp(1.7rem, 4vw, 2.35rem);
+	line-height: 1.05;
+}
+
+.website_item p {
+	color: var(--muted-color);
+	font-size: 0.88rem;
+	line-height: 1.45;
+}
+
+.websites_grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+	gap: 12px;
+}
+
+.website_item {
+	display: flex;
+	min-width: 0;
+	flex-direction: column;
+	gap: 13px;
+	padding: 18px;
+	border: 1px solid var(--border-color);
+	border-radius: var(--tile-radius);
+	background: var(--tile-color);
+	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+	transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.website_item:hover {
+	transform: translateY(-3px);
+	border-color: var(--websites-accent-color);
+	box-shadow: 0 16px 34px rgba(0, 0, 0, 0.32), 0 0 0 1px var(--websites-accent-bg);
+}
+
+.website_preview {
+	position: relative;
+	display: grid;
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	overflow: hidden;
+	place-items: center;
+	border: 1px solid var(--websites-accent-border);
+	border-radius: 6px;
+	background:
+		linear-gradient(rgba(125, 183, 255, 0.09) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(125, 183, 255, 0.09) 1px, transparent 1px),
+		radial-gradient(circle, rgba(125, 183, 255, 0.18), rgba(13, 15, 16, 0.82) 64%);
+	background-size: 18px 18px, 18px 18px, auto;
+	isolation: isolate;
+}
+
+.website_preview_name {
+	max-width: calc(100% - 28px);
+	color: var(--text-color);
+	font-size: clamp(0.95rem, 3vw, 1.35rem);
+	line-height: 1.1;
+	text-align: center;
+	text-shadow: 2px 0 rgba(255, 107, 154, 0.42), -2px 0 rgba(125, 183, 255, 0.42);
+}
+
+.website_preview img {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.website_preview[href]::after {
+	content: attr(data-url);
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+	display: grid;
+	place-items: center;
+	padding: 16px;
+	background: rgba(32, 67, 98, 0.95);
+	color: var(--text-color);
+	font-size: clamp(0.75rem, 2.5vw, 0.95rem);
+	font-weight: 700;
+	text-align: center;
+	overflow-wrap: anywhere;
+	opacity: 0;
+	transform: translateY(8px);
+	transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.website_preview[href]:hover::after,
+.website_preview[href]:focus-visible::after {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.website_preview:focus-visible {
+	outline: 2px solid var(--websites-accent-color);
+	outline-offset: 3px;
+}
+
+.website_item_header {
+	display: block;
+}
+
+.website_item h3 {
+	font-size: 1rem;
+	line-height: 1.25;
+}
+
+.website_meta {
+	display: flex;
+	flex-direction: column;
+	gap: 13px;
+	margin-top: auto;
+}
+
+.website_url {
+	display: block;
+	width: 100%;
+	padding: 9px 10px;
+	border: 1px solid transparent;
+	border-radius: 5px;
+	background: transparent;
+	color: var(--websites-accent-color);
+	font-size: 0.8rem;
+	font-weight: 700;
+	overflow-wrap: anywhere;
+	transition: transform 160ms ease, border-color 160ms ease, background-color 160ms ease, box-shadow 160ms ease, color 160ms ease;
+}
+
+.website_url:hover,
+.website_url:focus-visible {
+	transform: translateY(-2px);
+	border-color: var(--websites-accent-color);
+	background: var(--tile-hover-color);
+	color: var(--text-color);
+	box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28), 0 0 0 1px var(--websites-accent-bg);
+}
+
+.website_url:focus-visible {
+	outline: 2px solid var(--websites-accent-color);
+	outline-offset: 2px;
+}
+
+.website_features {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 7px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.website_features li {
+	padding: 6px 8px;
+	border: 1px solid var(--websites-accent-border);
+	border-radius: 5px;
+	background: var(--websites-accent-bg);
+	font-size: 0.72rem;
+	font-weight: 700;
+	line-height: 1.15;
+}
 @media (max-width: 640px) {
 	.lualua_card {
 		gap: 16px;
