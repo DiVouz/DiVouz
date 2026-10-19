@@ -10,4 +10,4 @@ Check out my Personal [Website](https://divouz.github.io/DiVouz/)
 
 ![DiVouz's GitHub stats](https://github-stats-extended.vercel.app/api?username=divouz&show_icons=true&theme=synthwave)
 
-![Top Langs](https://github-stats-extended.vercel.app/api/top-langs/?username=divouz&theme=synthwave)]
+![Top Langs](https://github-stats-extended.vercel.app/api/top-langs/?username=divouz&theme=synthwave)
