@@ -8,6 +8,6 @@ Check out my Personal [Website](https://divouz.github.io/DiVouz/)
 [![instagram](https://img.shields.io/badge/Instagram-e03172?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/dimitris.vouzaxakis/)
 [![facebook](https://img.shields.io/badge/Facebook-1877f2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/vouzaxakis.dimitris/)
 
-![DiVouz's GitHub stats](https://github-stats-extended.vercel.app/api?username=divouz&show_icons=true&theme=synthwave)
+![DiVouz's GitHub stats](https://github-stats-extended.vercel.app/api?username=divouz&show_icons=true&theme=synthwave&hide_rank=true)
 
 ![Top Langs](https://github-stats-extended.vercel.app/api/top-langs/?username=divouz&theme=synthwave)
