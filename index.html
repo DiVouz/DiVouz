@@ -23,10 +23,22 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<script src="js/websites.js" defer></script>
 		<script src="js/reveals.js" defer></script>
+		<script src="js/navigation.js" defer></script>
 	</head>
 
 	<body>
-		<main class="profile">
+		<header class="page_navigation" data-section="about">
+			<button class="section_picker" type="button" aria-expanded="false" aria-controls="page_sections">
+				<span class="section_picker_label">About</span>
+				<span class="section_picker_chevron" aria-hidden="true"></span>
+			</button>
+			<nav class="section_nav" id="page_sections" aria-label="Page sections">
+				<a href="#about" aria-current="location">About</a>
+				<a href="#lua-lua">Lua-Lua Scripts</a>
+				<a href="#websites">Websites</a>
+			</nav>
+		</header>
+		<main class="profile" id="about" tabindex="-1">
 			<div class="identity_row" aria-label="Dimitris Vouzaxakis and DiVouz identities">
 				<div class="identity_item">
 					<img src="images/dimitris.jpg" alt="Dimitris Vouzaxakis" class="identity_img">
@@ -80,7 +92,7 @@
 			</nav>
 		</main>
 
-		<section class="lualua_card" aria-label="Lua-Lua Scripts">
+		<section class="lualua_card" id="lua-lua" tabindex="-1" aria-label="Lua-Lua Scripts">
 			<div class="lualua_header">
 				<a class="lualua_logo_link" href="https://lualua.tebex.io/" target="_blank" rel="noopener" aria-label="Lua-Lua Scripts website">
 					<img src="images/lualua-icononly.png" alt="" class="lualua_icon">
@@ -116,7 +128,7 @@
 				</div>
 			</div>
 		</section>
-		<section class="websites_card" aria-labelledby="websites_title">
+		<section class="websites_card" id="websites" tabindex="-1" aria-labelledby="websites_title">
 			<header class="websites_header">
 				<h2 id="websites_title">Websites</h2>
 			</header>
