@@ -237,7 +237,8 @@ html {
 .profile,
 .lualua_card,
 .websites_card,
-.games_card {
+.games_card,
+.site_footer {
 	width: min(100%, var(--section-max-width));
 	padding: var(--section-padding);
 	border: 1px solid var(--section-border-color);
@@ -956,7 +957,8 @@ html {
 }
 
 .website_url,
-.websites_toggle {
+.websites_toggle,
+.footer_contact {
 	border: 1px solid var(--action-hover-color);
 	background: var(--action-color);
 	color: var(--action-text-color);
@@ -991,23 +993,29 @@ html {
 
 .website_url:hover,
 .website_url:focus-visible,
-.websites_toggle:hover {
+.websites_toggle:hover,
+.footer_contact:hover,
+.footer_contact:focus-visible {
 	transform: translateY(-1px);
 	background: var(--action-hover-color);
 }
 
 .website_url:hover,
-.website_url:focus-visible {
+.website_url:focus-visible,
+.footer_contact:hover,
+.footer_contact:focus-visible {
 	box-shadow: 0 5px 0 var(--action-edge-color);
 }
 
 .lualua_logo_link:active,
 .website_url:active,
-.websites_toggle:active {
+.websites_toggle:active,
+.footer_contact:active {
 	transform: translateY(3px);
 }
 
-.website_url:active {
+.website_url:active,
+.footer_contact:active {
 	box-shadow: var(--action-pressed-shadow);
 }
 
@@ -1075,10 +1083,123 @@ html {
 }
 
 /* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.site_footer {
+	--section-max-width: var(--section-wide-max-width);
+	--section-padding: 28px 26px;
+	--section-border-color: var(--accent-profile);
+	--availability-color: var(--accent-lualua);
+	--action-color: var(--accent-profile);
+	--action-hover-color: #ffb2e1;
+	--action-edge-color: #96306f;
+	--action-text-color: #2a0a1d;
+	--action-raised-shadow: 0 4px 0 var(--action-edge-color);
+	--action-pressed-shadow: 0 1px 0 var(--action-edge-color);
+
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+	align-items: center;
+	gap: 28px;
+	color: var(--muted-color);
+	font-size: 0.76rem;
+	line-height: 1.5;
+}
+
+.site_footer p {
+	margin: 0;
+}
+
+.footer_availability {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 10px;
+	text-align: left;
+}
+
+.footer_status {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	color: var(--availability-color);
+	font-weight: 700;
+}
+
+.footer_status::before {
+	content: "";
+	width: 7px;
+	height: 7px;
+	flex: 0 0 auto;
+	border-radius: 50%;
+	background: currentColor;
+	animation: status-pulse 2.4s ease-out infinite;
+}
+
+@keyframes status-pulse {
+	0% {
+		box-shadow: 0 0 0 0 color-mix(in srgb, var(--availability-color) 65%, transparent);
+	}
+
+	70%,
+	100% {
+		box-shadow: 0 0 0 7px transparent;
+	}
+}
+
+.footer_availability h2 {
+	margin: 0;
+	color: var(--text-color);
+	font-size: clamp(1.4rem, 3vw, 2rem);
+	line-height: 1.2;
+}
+
+.footer_availability > p:last-child {
+	max-width: 60ch;
+	font-size: 0.88rem;
+	line-height: 1.6;
+}
+
+.footer_links {
+	display: flex;
+	justify-content: center;
+}
+
+.footer_contact {
+	display: inline-flex;
+	min-height: var(--control-min-height);
+	align-items: center;
+	gap: 8px;
+	padding: 12px 20px;
+	border-radius: var(--radius-pill);
+	box-shadow: var(--action-raised-shadow);
+	font-weight: 700;
+	transition:
+		transform var(--transition-fast) ease,
+		background-color var(--transition-fast) ease,
+		box-shadow var(--transition-fast) ease;
+}
+
+.footer_contact:focus-visible {
+	outline: 2px solid var(--action-color);
+	outline-offset: 4px;
+}
+
+/* ==========================================================================
    Responsive layout: mobile navigation and stacked projects
    ========================================================================== */
 
 @media (max-width: 640px) {
+	.site_footer {
+		grid-template-columns: 1fr;
+	}
+
+	.footer_availability {
+		align-items: center;
+		text-align: center;
+	}
+
 	.page_navigation {
 		--nav-control-height: 48px;
 		--nav-link-padding: 12px 16px;
