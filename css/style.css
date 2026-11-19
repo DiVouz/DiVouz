@@ -1,4 +1,9 @@
+/* ==========================================================================
+   Design tokens
+   ========================================================================== */
+
 :root {
+	/* Background grid */
 	--texture-square-color: #151718;
 	--texture-small-line-color: rgba(32, 38, 45, 0.5);
 	--texture-large-line-color: rgba(43, 53, 66, 0.5);
@@ -7,22 +12,60 @@
 	--texture-pattern-offset: calc(var(--texture-small-cell-size) / 2);
 	--texture-small-line-size: 1px;
 	--texture-large-line-size: 2px;
+
+	/* Surfaces and text */
 	--text-color: #f6f7f2;
 	--muted-color: #b5bfcc;
 	--panel-color: #202226;
 	--tile-color: #2c2f35;
 	--tile-hover-color: #373b43;
 	--border-color: #4b5059;
-	--action-color: #7db7ff;
+	--tag-background: #272a30;
+	--tag-border-color: var(--border-color);
+	--surface-edge-color: #0c1119;
+
+	/* Section accents */
+	--accent-profile: #ff8cd1;
+	--accent-lualua: #a4ed78;
+	--accent-websites: #7db7ff;
+	--accent-games: #c4a0ff;
+
+	/* Primary actions */
+	--action-color: var(--accent-websites);
 	--action-hover-color: #a8cfff;
 	--action-edge-color: #365f91;
 	--action-text-color: #101b2a;
-	--surface-edge-color: #0c1119;
+	--action-raised-shadow: 0 4px 0 var(--action-edge-color);
+	--action-pressed-shadow: 0 1px 0 var(--action-edge-color);
+
+	/* Layout and corner radii */
 	--page-padding: 72px 16px 48px;
 	--profile-max-width: 760px;
 	--profile-padding: 34px 34px 38px;
 	--profile-radius: 24px;
 	--tile-radius: 16px;
+	--radius-small: 10px;
+	--radius-control: 12px;
+	--radius-pill: 999px;
+	--section-max-width: var(--profile-max-width);
+	--section-wide-max-width: 1100px;
+	--section-padding: 26px;
+	--section-gap: 26px;
+	--control-min-height: 44px;
+
+	/* Depth and motion */
+	--surface-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+	--panel-shadow:
+		0 6px 0 var(--surface-edge-color),
+		0 18px 40px rgba(0, 0, 0, 0.3),
+		var(--surface-highlight);
+	--pressed-shadow: 0 1px 0 var(--surface-edge-color);
+	--transition-fast: 160ms;
+	--transition-overlay: 180ms;
+	--reveal-duration: 450ms;
+	--reveal-item-duration: 400ms;
+
+	/* Profile imagery and social tiles */
 	--avatar-size: 154px;
 	--social-tile-size: 130px;
 	--social-links-gap: 12px;
@@ -37,7 +80,6 @@
 html,
 body {
 	width: 100%;
-	min-height: 100%;
 	margin: 0;
 	padding: 0;
 }
@@ -78,20 +120,35 @@ a {
 	text-decoration: none;
 }
 
+/* ==========================================================================
+   Base styles and document scrolling
+   ========================================================================== */
+
 html {
+	min-height: 100%;
 	scroll-behavior: smooth;
+
 	/* Entrance transforms must not become scroll-restoration anchors. */
 	overflow-anchor: none;
 }
 
+/* ==========================================================================
+   Section navigation
+   ========================================================================== */
+
 #about,
 #lua-lua,
-#websites {
+#websites,
+#games {
 	scroll-margin-top: 92px;
 }
 
 .page_navigation {
-	--picker-accent: #ff8cd1;
+	--nav-accent: var(--accent-profile);
+	--nav-control-height: var(--control-min-height);
+	--nav-link-padding: 8px 22px;
+	--nav-link-radius: var(--radius-pill);
+
 	position: fixed;
 	top: 0;
 	left: 50%;
@@ -102,18 +159,37 @@ html {
 	padding-top: env(safe-area-inset-top);
 	border: 1px solid var(--border-color);
 	border-top: 0;
-	border-radius: 0 0 24px 24px;
-	background: #202226;
+	border-radius: 0 0 var(--profile-radius) var(--profile-radius);
+	background: var(--panel-color);
 	box-shadow: 0 3px 0 var(--surface-edge-color), 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
-.page_navigation[data-section="lua-lua"] { --picker-accent: #a4ed78; }
-.page_navigation[data-section="websites"] { --picker-accent: #7db7ff; }
+.page_navigation[data-section="about"],
+.section_nav a[href="#about"] {
+	--nav-accent: var(--accent-profile);
+	--nav-tint: #392e34;
+}
+
+.page_navigation[data-section="lua-lua"],
+.section_nav a[href="#lua-lua"] {
+	--nav-accent: var(--accent-lualua);
+	--nav-tint: #293b26;
+}
+
+.page_navigation[data-section="websites"],
+.section_nav a[href="#websites"] {
+	--nav-accent: var(--accent-websites);
+	--nav-tint: #27364a;
+}
+
+.page_navigation[data-section="games"],
+.section_nav a[href="#games"] {
+	--nav-accent: var(--accent-games);
+	--nav-tint: #372b49;
+}
 
 .section_picker {
 	display: none;
-	font-size: 0.78rem;
-	color: var(--muted-color);
 }
 
 .section_nav {
@@ -128,19 +204,17 @@ html {
 
 .section_nav a {
 	display: inline-flex;
-	min-height: 44px;
+	min-height: var(--nav-control-height);
 	align-items: center;
-	padding: 8px 22px;
-	border-radius: 999px;
+	padding: var(--nav-link-padding);
+	border-radius: var(--nav-link-radius);
 	color: var(--muted-color);
 	font-size: 0.76rem;
 	font-weight: 700;
-	transition: color 160ms ease, background-color 160ms ease;
+	transition:
+		color var(--transition-fast) ease,
+		background-color var(--transition-fast) ease;
 }
-
-.section_nav a[href="#about"] { --nav-accent: #ff8cd1; --nav-tint: #392e34; }
-.section_nav a[href="#lua-lua"] { --nav-accent: #a4ed78; --nav-tint: #293b26; }
-.section_nav a[href="#websites"] { --nav-accent: #7db7ff; --nav-tint: #27364a; }
 
 .section_nav a:hover {
 	color: var(--nav-accent);
@@ -156,25 +230,72 @@ html {
 	outline-offset: 2px;
 }
 
-.profile {
-	--profile-accent-color: #ff8cd1;
-	--profile-accent-border: #ff8cd1;
-	--profile-accent-glow: rgba(246, 247, 242, 0.18);
-	position: relative;
-	width: min(100%, var(--profile-max-width));
-	padding: var(--profile-padding);
-	border: 1px solid var(--profile-accent-border);
+/* ==========================================================================
+   Shared section panels and headings
+   ========================================================================== */
+
+.profile,
+.lualua_card,
+.websites_card,
+.games_card {
+	width: min(100%, var(--section-max-width));
+	padding: var(--section-padding);
+	border: 1px solid var(--section-border-color);
 	border-radius: var(--profile-radius);
 	background: var(--panel-color);
-	box-shadow: 0 6px 0 var(--surface-edge-color), 0 24px 50px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+	box-shadow: var(--panel-shadow);
+}
+
+.lualua_card,
+.websites_card,
+.games_card {
+	display: flex;
+	flex-direction: column;
+	gap: var(--section-gap);
+}
+
+.websites_card,
+.games_card {
+	--section-max-width: var(--section-wide-max-width);
+
+	text-align: left;
+}
+
+.lualua_title_group h2,
+.websites_header h2,
+.games_header h2 {
+	margin: 0;
+	font-size: clamp(1.7rem, 4vw, 2.35rem);
+	line-height: 1.05;
+}
+
+.games_header,
+.websites_header {
+	text-align: center;
+}
+
+.profile {
+	--social-accent-color: var(--accent-profile);
+	--section-border-color: var(--accent-profile);
+	--section-padding: var(--profile-padding);
+	--panel-shadow:
+		0 6px 0 var(--surface-edge-color),
+		0 24px 50px rgba(0, 0, 0, 0.35),
+		var(--surface-highlight);
+
 	overflow: hidden;
 }
+
+/* ==========================================================================
+   Entrance animations
+   ========================================================================== */
 
 @keyframes profile-reveal {
 	from {
 		opacity: 0;
 		transform: translateY(12px);
 	}
+
 	to {
 		opacity: 1;
 		transform: translateY(0);
@@ -182,74 +303,80 @@ html {
 }
 
 @keyframes panel-reveal {
-	from { opacity: 0; }
-	to { opacity: 1; }
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
 }
 
 .scroll-reveal--pending {
 	opacity: 0;
 }
 
+.profile,
 .scroll-reveal--visible {
-	animation: panel-reveal 450ms ease-out backwards;
+	animation: panel-reveal var(--reveal-duration) ease-out backwards;
 }
 
-.scroll-reveal--visible :is(.lualua_header, .websites_header) {
-	animation: profile-reveal 450ms 80ms ease-out backwards;
+.profile .identity_row,
+.scroll-reveal--visible :is(.lualua_header, .websites_header, .games_header) {
+	animation: profile-reveal var(--reveal-duration) 80ms ease-out backwards;
 }
 
+.profile .intro,
 .scroll-reveal--visible .lualua_content > p {
-	animation: profile-reveal 450ms 160ms ease-out backwards;
+	animation: profile-reveal var(--reveal-duration) 160ms ease-out backwards;
 }
 
-.scroll-reveal--visible .lualua_features {
-	animation: profile-reveal 400ms 240ms ease-out backwards;
+.profile .expertise > span,
+.scroll-reveal--visible :is(.lualua_features, .website_item, .game_item) {
+	animation: profile-reveal var(--reveal-item-duration) 240ms ease-out backwards;
 }
 
-.scroll-reveal--visible .website_item {
-	animation: profile-reveal 400ms 240ms ease-out backwards;
-}
-
-.scroll-reveal--visible .website_item:nth-child(2) { animation-delay: 300ms; }
-.scroll-reveal--visible .website_item:nth-child(3) { animation-delay: 360ms; }
-
-.scroll-reveal--visible .websites_toggle {
-	animation: profile-reveal 400ms 420ms ease-out backwards;
-}
-
-.profile {
-	animation: panel-reveal 450ms ease-out backwards;
-}
-
-.profile .identity_row {
-	animation: profile-reveal 450ms 80ms ease-out backwards;
-}
-
-.profile .intro {
-	animation: profile-reveal 450ms 160ms ease-out backwards;
-}
-
-.profile .expertise > span {
-	animation: profile-reveal 400ms 240ms ease-out backwards;
-}
-
-.profile .expertise > span:nth-child(2) {
+.profile .expertise > span:nth-child(2),
+.scroll-reveal--visible :is(.website_item, .game_item):nth-child(2) {
 	animation-delay: 300ms;
 }
 
-.profile .expertise > span:nth-child(3) {
+.profile .expertise > span:nth-child(3),
+.scroll-reveal--visible :is(.website_item, .game_item):nth-child(3) {
 	animation-delay: 360ms;
 }
 
-:is(.profile, .scroll-reveal--visible) .social_links a {
-	animation: profile-reveal 400ms 360ms ease-out backwards;
+.scroll-reveal--visible .websites_toggle {
+	animation: profile-reveal var(--reveal-item-duration) 420ms ease-out backwards;
 }
 
-:is(.profile, .scroll-reveal--visible) .social_links a:nth-child(2) { animation-delay: 400ms; }
-:is(.profile, .scroll-reveal--visible) .social_links a:nth-child(3) { animation-delay: 440ms; }
-:is(.profile, .scroll-reveal--visible) .social_links a:nth-child(4) { animation-delay: 480ms; }
-:is(.profile, .scroll-reveal--visible) .social_links a:nth-child(5) { animation-delay: 520ms; }
-:is(.profile, .scroll-reveal--visible) .social_links a:nth-child(6) { animation-delay: 560ms; }
+:is(.profile, .scroll-reveal--visible) .social_links a {
+	animation: profile-reveal var(--reveal-item-duration) 360ms ease-out backwards;
+}
+
+:is(.profile, .scroll-reveal--visible) .social_links a:nth-child(2) {
+	animation-delay: 400ms;
+}
+
+:is(.profile, .scroll-reveal--visible) .social_links a:nth-child(3) {
+	animation-delay: 440ms;
+}
+
+:is(.profile, .scroll-reveal--visible) .social_links a:nth-child(4) {
+	animation-delay: 480ms;
+}
+
+:is(.profile, .scroll-reveal--visible) .social_links a:nth-child(5) {
+	animation-delay: 520ms;
+}
+
+:is(.profile, .scroll-reveal--visible) .social_links a:nth-child(6) {
+	animation-delay: 560ms;
+}
+
+/* ==========================================================================
+   Profile identity and expertise
+   ========================================================================== */
 
 .identity_row {
 	display: flex;
@@ -284,9 +411,10 @@ html {
 	border: 4px solid rgba(255, 255, 255, 0.86);
 	border-radius: 50%;
 	background-color: rgba(255, 255, 255, 0.1);
-	box-shadow: 0 5px 0 var(--surface-edge-color), 0 0 0 6px rgba(255, 140, 209, 0.08);
+	box-shadow:
+		0 5px 0 var(--surface-edge-color),
+		0 0 0 6px color-mix(in srgb, var(--accent-profile) 8%, transparent);
 }
-
 
 .identity_x {
 	width: clamp(30px, 5vw, 46px);
@@ -294,7 +422,6 @@ html {
 	margin-top: 58px;
 	object-fit: contain;
 }
-
 
 .intro {
 	display: flex;
@@ -318,7 +445,6 @@ html {
 
 .expertise {
 	display: grid;
-	grid-template-columns: minmax(0, 1fr);
 	grid-template-columns: repeat(3, minmax(0, 1fr));
 	gap: 14px;
 	margin: 30px auto 0;
@@ -334,7 +460,7 @@ html {
 	gap: 10px;
 	padding: 14px 10px;
 	border: 1px solid rgb(var(--skill-rgb));
-	border-radius: 10px;
+	border-radius: var(--radius-small);
 	background: rgb(var(--skill-rgb));
 	color: #20212a;
 	font-size: 0.84rem;
@@ -374,7 +500,11 @@ html {
 	--skill-rgb: 204 186 246;
 }
 
-.social_links {
+/* ==========================================================================
+   Social links and shared raised interactions
+   ========================================================================== */
+
+	.social_links {
 	display: grid;
 	width: min(100%, calc((var(--social-tile-size) * 3) + (var(--social-links-gap) * 2)));
 	grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -397,28 +527,38 @@ html {
 	background: var(--tile-color);
 	color: var(--text-color);
 	overflow-wrap: anywhere;
-	box-shadow: 0 5px 0 var(--surface-edge-color), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-	transition: transform 160ms ease, border-color 160ms ease, background-color 160ms ease, box-shadow 160ms ease;
+	box-shadow: 0 5px 0 var(--surface-edge-color), var(--surface-highlight);
 }
 
-
+.social_links a,
+.lualua_logo_link {
+	transition:
+		transform var(--transition-fast) ease,
+		border-color var(--transition-fast) ease,
+		background-color var(--transition-fast) ease,
+		box-shadow var(--transition-fast) ease;
+}
 .social_links a:hover,
 .social_links a:focus-visible {
 	transform: translateY(-2px);
-	border-color: var(--profile-accent-color);
+	border-color: var(--social-accent-color);
 	background: var(--tile-hover-color);
 	box-shadow: 0 7px 0 var(--surface-edge-color), 0 10px 20px rgba(0, 0, 0, 0.2);
-	color: var(--profile-accent-color);
+	color: var(--social-accent-color);
 }
 
 .social_links a:focus-visible {
-	outline: 2px solid var(--profile-accent-color, var(--action-color));
+	outline: 2px solid var(--social-accent-color);
 	outline-offset: 4px;
+}
+
+.social_links a:active,
+.lualua_logo_link:active {
+	box-shadow: var(--pressed-shadow);
 }
 
 .social_links a:active {
 	transform: translateY(4px);
-	box-shadow: 0 1px 0 var(--surface-edge-color);
 }
 
 .social_name {
@@ -440,22 +580,20 @@ html {
 	line-height: 1.25;
 }
 
+/* ==========================================================================
+   Lua-Lua Scripts
+   ========================================================================== */
+
 .lualua_card {
-	--lualua-accent-color: #a4ed78;
+	--lualua-accent-color: var(--accent-lualua);
 	--lualua-accent-border: #5a9143;
-	--lualua-accent-bg: #2a4023;
+	--section-border-color: var(--lualua-accent-border);
+	--section-gap: 24px;
+	--social-accent-color: var(--lualua-accent-color);
 	--tile-color: #293b26;
 	--tile-hover-color: #354e2d;
 	--border-color: #4d6c40;
-	display: flex;
-	width: min(100%, var(--profile-max-width));
-	flex-direction: column;
-	gap: 24px;
-	padding: 26px;
-	border: 1px solid var(--lualua-accent-border);
-	border-radius: var(--profile-radius);
-	background: var(--panel-color);
-	box-shadow: 0 6px 0 var(--surface-edge-color), 0 18px 40px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
 	text-align: center;
 }
 
@@ -476,10 +614,6 @@ html {
 }
 
 .lualua_title_group h2 {
-	margin: 0;
-	font-size: clamp(1.7rem, 4vw, 2.35rem);
-	line-height: 1.05;
-	color: var(--text-color);
 	white-space: nowrap;
 }
 
@@ -505,7 +639,6 @@ html {
 	border-radius: 50%;
 	background: #303238;
 	box-shadow: 0 4px 0 var(--surface-edge-color);
-	transition: transform 160ms ease, border-color 160ms ease, background-color 160ms ease, box-shadow 160ms ease;
 }
 
 .lualua_logo_link:hover,
@@ -520,17 +653,11 @@ html {
 	outline-offset: 4px;
 }
 
-.lualua_logo_link:active {
-	transform: translateY(3px);
-	box-shadow: 0 1px 0 var(--surface-edge-color);
-}
-
 .lualua_icon {
 	width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
-    transform: translateX(-12px) scale(1.2);
+	height: 100%;
+	object-fit: contain;
+	transform: translateX(-12px) scale(1.2);
 }
 
 .lualua_content {
@@ -562,55 +689,163 @@ html {
 	justify-content: center;
 	min-height: 34px;
 	padding: 8px 11px;
-	border: 1px solid var(--lualua-accent-border);
-	border-radius: 999px;
-	background: var(--lualua-accent-bg);
+	border: 1px solid var(--tag-border-color);
+	background: var(--tag-background);
 	color: var(--text-color);
 	font-size: 0.78rem;
+}
+
+.lualua_links {
+	margin-top: 4px;
+}
+
+/* ==========================================================================
+   Project section themes
+   ========================================================================== */
+
+.websites_card {
+	--websites-accent-color: var(--action-color);
+	--websites-accent-border: color-mix(in srgb, var(--accent-websites) 42%, transparent);
+	--section-border-color: var(--websites-accent-border);
+	--tag-color: #d1cbd5;
+	--preview-grid-color: rgba(239, 193, 140, 0.09);
+}
+
+.games_card {
+	--section-border-color: color-mix(in srgb, var(--accent-games) 42%, transparent);
+	--section-gap: 28px;
+	--tag-padding-inline: 9px;
+	--tag-border-color: color-mix(in srgb, var(--accent-games) 30%, transparent);
+	--tag-background: #2c2637;
+	--tag-color: #d6c0fa;
+}
+
+/* ==========================================================================
+   Game posters and engine branding
+   ========================================================================== */
+
+.games_grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 22px;
+}
+
+.game_item {
+	display: flex;
+	min-width: 0;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.game_poster {
+	--engine-logo-width: 188px;
+	--engine-logo-height: 72px;
+	--engine-logo-bottom: 30px;
+
+	position: relative;
+	aspect-ratio: 3 / 4;
+	overflow: hidden;
+	border: 1px solid var(--border-color);
+	border-radius: 14px;
+	background: #15171c;
+	isolation: isolate;
+}
+
+.game_poster::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	background: linear-gradient(
+		to bottom,
+		transparent 20%,
+		rgba(0, 0, 0, 0.2) 45%,
+		rgba(0, 0, 0, 0.8) 75%,
+		#000 100%
+	);
+	pointer-events: none;
+}
+
+.game_poster > img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	opacity: 0.45;
+	filter: saturate(0.65);
+}
+
+.game_poster--love > img {
+	object-position: 65% center;
+}
+
+.game_brand {
+	position: absolute;
+	bottom: var(--engine-logo-bottom);
+	left: 24px;
+	right: 24px;
+	z-index: 2;
+	display: flex;
+	justify-content: center;
+}
+
+.game_engine_logo {
+	display: block;
+	width: min(100%, var(--engine-logo-width));
+	height: var(--engine-logo-height);
+	object-fit: contain;
+}
+
+.game_poster--unity {
+	--engine-logo-width: 280px;
+	--engine-logo-height: 120px;
+	--engine-logo-bottom: 6px;
+}
+
+.game_item h3 {
+	margin: 6px 0 0;
+	font-size: 1.05rem;
+	line-height: 1.3;
+}
+
+/* ==========================================================================
+   Shared project tags
+   ========================================================================== */
+
+.game_technologies,
+.website_features {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 7px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.game_technologies li,
+.website_features li {
+	padding: 6px var(--tag-padding-inline, 8px);
+	border: 1px solid var(--tag-border-color);
+	background: var(--tag-background);
+	color: var(--tag-color);
+	font-size: 0.72rem;
+}
+
+.lualua_features span,
+.game_technologies li,
+.website_features li {
+	border-radius: var(--radius-pill);
 	font-weight: 700;
 	line-height: 1.15;
 }
 
-.lualua_links {
-	--profile-accent-color: var(--lualua-accent-color);
-	margin-top: 4px;
-}
+/* ==========================================================================
+   Website cards and previews
+   ========================================================================== */
 
-.lualua_links a:hover,
-.lualua_links a:focus-visible {
-	border-color: var(--lualua-accent-color);
-	color: var(--lualua-accent-color);
-}
-
-.websites_card {
-	--websites-accent-color: var(--action-color);
-	--websites-accent-border: rgba(125, 183, 255, 0.42);
-	--websites-accent-bg: rgba(125, 183, 255, 0.08);
-	display: flex;
-	width: min(100%, 1100px);
-	flex-direction: column;
-	gap: 26px;
-	padding: 26px;
-	border: 1px solid var(--websites-accent-border);
-	border-radius: var(--profile-radius);
-	background: var(--panel-color);
-	box-shadow: 0 6px 0 var(--surface-edge-color), 0 18px 40px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-	text-align: left;
-}
-
-.websites_header {
-	text-align: center;
-}
-
-.websites_header h2,
 .website_item h3,
 .website_item p {
 	margin: 0;
-}
-
-.websites_header h2 {
-	font-size: clamp(1.7rem, 4vw, 2.35rem);
-	line-height: 1.05;
 }
 
 .website_item p {
@@ -649,10 +884,10 @@ html {
 	overflow: hidden;
 	place-items: center;
 	border: 1px solid var(--websites-accent-border);
-	border-radius: 10px;
+	border-radius: var(--radius-small);
 	background:
-		linear-gradient(rgba(239, 193, 140, 0.09) 1px, transparent 1px),
-		linear-gradient(90deg, rgba(239, 193, 140, 0.09) 1px, transparent 1px),
+		linear-gradient(var(--preview-grid-color) 1px, transparent 1px),
+		linear-gradient(90deg, var(--preview-grid-color) 1px, transparent 1px),
 		radial-gradient(circle, rgba(239, 193, 140, 0.18), rgba(13, 15, 16, 0.82) 64%);
 	background-size: 18px 18px, 18px 18px, auto;
 	isolation: isolate;
@@ -692,7 +927,9 @@ html {
 	overflow-wrap: anywhere;
 	opacity: 0;
 	transform: translateY(8px);
-	transition: opacity 180ms ease, transform 180ms ease;
+	transition:
+		opacity var(--transition-overlay) ease,
+		transform var(--transition-overlay) ease;
 }
 
 .website_preview[href]:hover::after,
@@ -704,10 +941,6 @@ html {
 .website_preview:focus-visible {
 	outline: 2px solid var(--websites-accent-color);
 	outline-offset: 3px;
-}
-
-.website_item_header {
-	display: block;
 }
 
 .website_item h3 {
@@ -722,23 +955,32 @@ html {
 	margin-top: auto;
 }
 
+.website_url,
+.websites_toggle {
+	border: 1px solid var(--action-hover-color);
+	background: var(--action-color);
+	color: var(--action-text-color);
+}
+
 .website_url {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	gap: 10px;
 	width: 100%;
-	min-height: 44px;
+	min-height: var(--control-min-height);
 	padding: 11px 14px;
-	border: 1px solid var(--action-hover-color);
-	border-radius: 12px;
-	background: var(--action-color);
-	color: var(--action-text-color);
-	box-shadow: 0 4px 0 var(--action-edge-color);
+	border-radius: var(--radius-control);
+	box-shadow: var(--action-raised-shadow);
 	font-size: 0.8rem;
 	font-weight: 700;
 	overflow-wrap: anywhere;
-	transition: transform 160ms ease, border-color 160ms ease, background-color 160ms ease, box-shadow 160ms ease, color 160ms ease;
+	transition:
+		transform var(--transition-fast) ease,
+		border-color var(--transition-fast) ease,
+		background-color var(--transition-fast) ease,
+		box-shadow var(--transition-fast) ease,
+		color var(--transition-fast) ease;
 }
 
 .website_url::after {
@@ -748,15 +990,25 @@ html {
 }
 
 .website_url:hover,
-.website_url:focus-visible {
+.website_url:focus-visible,
+.websites_toggle:hover {
 	transform: translateY(-1px);
 	background: var(--action-hover-color);
+}
+
+.website_url:hover,
+.website_url:focus-visible {
 	box-shadow: 0 5px 0 var(--action-edge-color);
 }
 
-.website_url:active {
+.lualua_logo_link:active,
+.website_url:active,
+.websites_toggle:active {
 	transform: translateY(3px);
-	box-shadow: 0 1px 0 var(--action-edge-color);
+}
+
+.website_url:active {
+	box-shadow: var(--action-pressed-shadow);
 }
 
 .website_url:focus-visible {
@@ -764,25 +1016,6 @@ html {
 	outline-offset: 2px;
 }
 
-.website_features {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 7px;
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-.website_features li {
-	padding: 6px 8px;
-	border: 1px solid var(--border-color);
-	border-radius: 999px;
-	background: #272a30;
-	color: #d1cbd5;
-	font-size: 0.72rem;
-	font-weight: 700;
-	line-height: 1.15;
-}
 .website_features .website_feature--vibe {
 	border-color: rgba(213, 166, 255, 0.7);
 	background: linear-gradient(120deg, rgba(162, 93, 255, 0.24), rgba(255, 107, 154, 0.18));
@@ -795,21 +1028,23 @@ html {
 	display: none;
 }
 
+/* Website list expansion */
+
 .websites_toggle {
 	display: inline-flex;
 	align-items: center;
 	gap: 12px;
 	align-self: center;
 	padding: 13px 22px;
-	border: 1px solid var(--action-hover-color);
-	border-radius: 999px;
-	background: var(--action-color);
-	color: var(--action-text-color);
-	box-shadow: 0 4px 0 var(--action-edge-color), 0 8px 18px rgba(0, 0, 0, 0.28);
+	border-radius: var(--radius-pill);
+	box-shadow: var(--action-raised-shadow), 0 8px 18px rgba(0, 0, 0, 0.28);
 	font: inherit;
 	font-weight: 700;
 	cursor: pointer;
-	transition: transform 160ms ease, background-color 160ms ease, box-shadow 160ms ease;
+	transition:
+		transform var(--transition-fast) ease,
+		background-color var(--transition-fast) ease,
+		box-shadow var(--transition-fast) ease;
 }
 
 .websites_toggle::after {
@@ -825,14 +1060,8 @@ html {
 	transform: translateY(2px) rotate(225deg);
 }
 
-.websites_toggle:hover {
-	background: var(--action-hover-color);
-	transform: translateY(-1px);
-}
-
 .websites_toggle:active {
-	transform: translateY(3px);
-	box-shadow: 0 1px 0 var(--action-edge-color), 0 3px 8px rgba(0, 0, 0, 0.2);
+	box-shadow: var(--action-pressed-shadow), 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
 .websites_toggle:focus-visible {
@@ -845,9 +1074,28 @@ html {
 	text-shadow: 0 0 8px rgba(213, 166, 255, 0.65);
 }
 
+/* ==========================================================================
+   Responsive layout: mobile navigation and stacked projects
+   ========================================================================== */
+
 @media (max-width: 640px) {
+	.page_navigation {
+		--nav-control-height: 48px;
+		--nav-link-padding: 12px 16px;
+		--nav-link-radius: var(--radius-control);
+	}
+
+	.games_grid {
+		grid-template-columns: 1fr;
+		gap: 28px;
+	}
+
+	.game_poster {
+		aspect-ratio: 4 / 3;
+	}
+
 	body {
-		padding: 64px 16px 32px;
+		--page-padding: 64px 16px 32px;
 	}
 
 	.page_navigation--ready .section_picker {
@@ -856,10 +1104,10 @@ html {
 		align-items: center;
 		gap: 3px 16px;
 		width: 100%;
-		min-height: 48px;
+		min-height: var(--nav-control-height);
 		padding: 10px 18px;
 		border: 0;
-		border-radius: 999px;
+		border-radius: var(--radius-pill);
 		background: transparent;
 		font: inherit;
 		text-align: left;
@@ -875,8 +1123,7 @@ html {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		gap: 8px;
-		color: var(--picker-accent);
+		color: var(--nav-accent);
 		font-size: 0.82rem;
 		font-weight: 700;
 	}
@@ -889,7 +1136,7 @@ html {
 		border-right: 2px solid var(--muted-color);
 		border-bottom: 2px solid var(--muted-color);
 		transform: translateY(-2px) rotate(45deg);
-		transition: transform 180ms ease;
+		transition: transform var(--transition-overlay) ease;
 	}
 
 	.page_navigation--ready .section_nav {
@@ -911,27 +1158,20 @@ html {
 
 	.page_navigation--expanded .section_nav {
 		display: flex;
-		animation: section-menu-reveal 180ms ease-out backwards;
+		animation: section-menu-reveal var(--transition-overlay) ease-out backwards;
 	}
 
 	.page_navigation--expanded .section_picker_chevron {
 		transform: translateY(2px) rotate(225deg);
 	}
 
-	.section_nav a {
-		min-height: 48px;
-		padding: 12px 16px;
-		gap: 10px;
-		border-radius: 12px;
-	}
-
 	.section_picker:focus-visible {
-		outline: 2px solid var(--picker-accent);
+		outline: 2px solid var(--nav-accent);
 		outline-offset: 4px;
 	}
 
 	.lualua_card {
-		gap: 16px;
+		--section-gap: 16px;
 	}
 
 	.lualua_header {
@@ -948,21 +1188,29 @@ html {
 		font-size: clamp(1.35rem, 7vw, 1.9rem);
 		white-space: normal;
 	}
-
 }
 
 @keyframes section-menu-reveal {
-	from { opacity: 0; transform: translateY(-6px); }
-	to { opacity: 1; transform: translateY(0); }
+	from {
+		opacity: 0;
+		transform: translateY(-6px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
+
+/* Compact profile layout */
 
 @media (max-width: 520px) {
 	body {
-		padding: 64px 18px 32px;
+		--page-padding: 64px 18px 32px;
 	}
 
 	.profile {
-		padding: 28px 16px;
+		--section-padding: 28px 16px;
 	}
 
 	.expertise {
@@ -980,8 +1228,9 @@ html {
 	}
 
 	.lualua_card,
-	.websites_card {
-		padding: 20px 16px;
+	.websites_card,
+	.games_card {
+		--section-padding: 20px 16px;
 	}
 
 	.identity_row {
@@ -1004,8 +1253,11 @@ html {
 		height: 30px;
 		margin-top: 0;
 	}
-
 }
+
+/* ==========================================================================
+   Accessibility: reduced motion
+   ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
 	.scroll-reveal--pending {

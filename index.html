@@ -4,22 +4,30 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<meta name="description" content="Software engineer specializing in web development, game development, and software development.">
+		<!-- Search and sharing metadata -->
+		<meta
+			name="description"
+			content="Software engineer specializing in web development, game development, and software development."
+		>
 		<meta name="keywords" content="Dimitris Vouzaxakis, DiVouz, Developer">
 		<meta name="author" content="Dimitris Vouzaxakis">
 
 		<meta property="og:title" content="Dimitris Vouzaxakis | Software Engineer">
-		<meta property="og:description" content="Software engineer specializing in web development, game development, and software development.">
+		<meta
+			property="og:description"
+			content="Software engineer specializing in web development, game development, and software development."
+		>
 		<meta property="og:type" content="website">
 		<meta property="og:url" content="https://divouz.github.io/DiVouz/">
 		<meta property="og:image" content="https://divouz.github.io/DiVouz/images/divouz.png">
 		<meta property="og:image:width" content="1024">
 		<meta property="og:image:height" content="1024">
 		<meta property="og:image:alt" content="DiVouz logo">
-		
-		<link rel="icon" href="images/divouz.png">
-		<title>Dimitris Vouzaxakis</title>
 
+		<title>Dimitris Vouzaxakis</title>
+		<link rel="icon" href="images/divouz.png">
+
+		<!-- Styles and page behavior -->
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<script src="js/websites.js" defer></script>
 		<script src="js/reveals.js" defer></script>
@@ -27,35 +35,61 @@
 	</head>
 
 	<body>
+		<!-- Section navigation -->
 		<header class="page_navigation" data-section="about">
-			<button class="section_picker" type="button" aria-expanded="false" aria-controls="page_sections">
+			<button
+				class="section_picker"
+				type="button"
+				aria-expanded="false"
+				aria-controls="page_sections"
+			>
 				<span class="section_picker_label">About</span>
 				<span class="section_picker_chevron" aria-hidden="true"></span>
 			</button>
+
 			<nav class="section_nav" id="page_sections" aria-label="Page sections">
 				<a href="#about" aria-current="location">About</a>
-				<a href="#lua-lua">Lua-Lua Scripts</a>
+				<a href="#lua-lua">FiveM</a>
 				<a href="#websites">Websites</a>
+				<a href="#games">Games</a>
 			</nav>
 		</header>
+
+		<!-- Profile and contact links -->
 		<main class="profile" id="about" tabindex="-1">
 			<div class="identity_row" aria-label="Dimitris Vouzaxakis and DiVouz identities">
 				<div class="identity_item">
 					<img src="images/dimitris.jpg" alt="Dimitris Vouzaxakis" class="identity_img">
 					<h1>Dimitris Vouzaxakis</h1>
 				</div>
+
 				<img src="images/cross.svg" alt="" class="identity_x" aria-hidden="true">
+
 				<div class="identity_item">
 					<img src="images/divouz.png" alt="DiVouz" class="identity_img">
 					<span>DiVouz</span>
 				</div>
 			</div>
 
-			<div class="intro" aria-label="Professional summary"><span>Software Engineer</span><span>Based in Greece</span><span>Freelance</span></div>
+			<div class="intro" aria-label="Professional summary">
+				<span>Software Engineer</span>
+				<span>Based in Greece</span>
+				<span>Freelance</span>
+			</div>
+
 			<div class="expertise" aria-label="Expertise">
-				<span><span class="expertise_icon" aria-hidden="true">&lt;/&gt;</span>Web Development</span>
-				<span><span class="expertise_icon" aria-hidden="true">[]</span>Game Development</span>
-				<span><span class="expertise_icon" aria-hidden="true">{ }</span>Software Development</span>
+				<span>
+					<span class="expertise_icon" aria-hidden="true">&lt;/&gt;</span>
+					Web Development
+				</span>
+				<span>
+					<span class="expertise_icon" aria-hidden="true">[]</span>
+					Game Development
+				</span>
+				<span>
+					<span class="expertise_icon" aria-hidden="true">{ }</span>
+					Software Development
+				</span>
 			</div>
 
 			<nav class="social_links" aria-label="Contact links">
@@ -64,27 +98,48 @@
 					<img src="images/email.png" alt="" class="social_img">
 					<span class="social_handle">divouz<br>@outlook.com</span>
 				</a>
-				<a href="https://www.linkedin.com/in/dimitris-vouzaxakis/" target="_blank" rel="noopener">
+
+				<a
+					href="https://www.linkedin.com/in/dimitris-vouzaxakis/"
+					target="_blank"
+					rel="noopener"
+				>
 					<span class="social_name">LinkedIn</span>
 					<img src="images/linkedin.png" alt="" class="social_img">
 					<span class="social_handle">/dimitris-<br>vouzaxakis</span>
 				</a>
+
 				<a href="https://github.com/DiVouz/" target="_blank" rel="noopener">
 					<span class="social_name">GitHub</span>
 					<img src="images/github.png" alt="" class="social_img">
 					<span class="social_handle">/DiVouz</span>
 				</a>
-				<a href="https://discord.com/users/325475112071593996" target="_blank" rel="noopener">
+
+				<a
+					href="https://discord.com/users/325475112071593996"
+					target="_blank"
+					rel="noopener"
+				>
 					<span class="social_name">Discord</span>
 					<img src="images/discord.png" alt="" class="social_img">
 					<span class="social_handle">divouz</span>
 				</a>
-				<a href="https://www.facebook.com/vouzaxakis.dimitris/" target="_blank" rel="noopener">
+
+				<a
+					href="https://www.facebook.com/vouzaxakis.dimitris/"
+					target="_blank"
+					rel="noopener"
+				>
 					<span class="social_name">Facebook</span>
 					<img src="images/facebook.png" alt="" class="social_img">
 					<span class="social_handle">/vouzaxakis.<br>dimitris</span>
 				</a>
-				<a href="https://www.instagram.com/dimitris.vouzaxakis/" target="_blank" rel="noopener">
+
+				<a
+					href="https://www.instagram.com/dimitris.vouzaxakis/"
+					target="_blank"
+					rel="noopener"
+				>
 					<span class="social_name">Instagram</span>
 					<img src="images/instagram.png" alt="" class="social_img">
 					<span class="social_handle">/dimitris.<br>vouzaxakis</span>
@@ -92,34 +147,55 @@
 			</nav>
 		</main>
 
+		<!-- Lua-Lua Scripts -->
 		<section class="lualua_card" id="lua-lua" tabindex="-1" aria-label="Lua-Lua Scripts">
 			<div class="lualua_header">
-				<a class="lualua_logo_link" href="https://lualua.tebex.io/" target="_blank" rel="noopener" aria-label="Lua-Lua Scripts website">
+				<a
+					class="lualua_logo_link"
+					href="https://lualua.tebex.io/"
+					target="_blank"
+					rel="noopener"
+					aria-label="Lua-Lua Scripts website"
+				>
 					<img src="images/lualua-icononly.png" alt="" class="lualua_icon">
 				</a>
+
 				<div class="lualua_title_group">
 					<h2>Lua-Lua Scripts</h2>
 					<p class="lualua_role">Founder & Developer | Since 2021</p>
 				</div>
 			</div>
+
 			<div class="lualua_content">
-				<p>Lua-Lua Scripts is a FiveM shop selling configurable resources and scripts for server owners who want polished features, practical setup, and support after purchase.</p>
+				<p>
+					Lua-Lua Scripts is a FiveM shop selling configurable resources and scripts
+					for server owners who want polished features, practical setup, and support
+					after purchase.
+				</p>
+
 				<div class="lualua_features" aria-label="Lua-Lua Scripts features">
 					<span>1000+ purchases</span>
 					<span>Live Chat Discord support</span>
 					<span>Highly configurable configs</span>
 				</div>
+
 				<div class="social_links lualua_links" aria-label="Lua-Lua Scripts links">
 					<a href="https://lualua.tebex.io/" target="_blank" rel="noopener">
 						<span class="social_name">Store</span>
 						<img src="images/tebex.png" alt="" class="social_img">
 						<span class="social_handle">lualua.tebex.io</span>
 					</a>
-					<a href="https://www.youtube.com/@lua-lua_scripts" target="_blank" rel="noopener">
+
+					<a
+						href="https://www.youtube.com/@lua-lua_scripts"
+						target="_blank"
+						rel="noopener"
+					>
 						<span class="social_name">YouTube</span>
 						<img src="images/youtube.png" alt="" class="social_img">
 						<span class="social_handle">@lua-lua_scripts</span>
 					</a>
+
 					<a href="https://discord.gg/HeXUN7tCHE" target="_blank" rel="noopener">
 						<span class="social_name">Discord</span>
 						<img src="images/discord.png" alt="" class="social_img">
@@ -128,25 +204,63 @@
 				</div>
 			</div>
 		</section>
-		<section class="websites_card" id="websites" tabindex="-1" aria-labelledby="websites_title">
+
+		<!-- Website portfolio -->
+		<section
+			class="websites_card"
+			id="websites"
+			tabindex="-1"
+			aria-labelledby="websites_title"
+		>
 			<header class="websites_header">
 				<h2 id="websites_title">Websites</h2>
 			</header>
 
 			<div class="websites_grid" id="websites_grid">
 				<article class="website_item">
-					<a class="website_preview" href="https://giorgos-evgenia-reception.divouz.gr" target="_blank" rel="noopener" aria-label="Open Giorgos and Evgenia wedding invitation" data-url="giorgos-evgenia-reception.divouz.gr">
-						<img src="images/websites/giorgos-evgenia-reception.divouz.gr.png" alt="Giorgos and Evgenia wedding invitation preview" loading="lazy" onerror="this.remove()">
-						<strong class="website_preview_name">giorgos-evgenia-reception.divouz.gr</strong>
+					<a
+						class="website_preview"
+						href="https://giorgos-evgenia-reception.divouz.gr"
+						target="_blank"
+						rel="noopener"
+						aria-label="Open Giorgos and Evgenia wedding invitation"
+						data-url="giorgos-evgenia-reception.divouz.gr"
+					>
+						<img
+							src="images/websites/giorgos-evgenia-reception.divouz.gr.png"
+							alt="Giorgos and Evgenia wedding invitation preview"
+							loading="lazy"
+							onerror="this.remove()"
+						>
+						<strong class="website_preview_name">
+							giorgos-evgenia-reception.divouz.gr
+						</strong>
 					</a>
+
 					<div class="website_item_header">
 						<h3>Giorgos &amp; Evgenia | Wedding Invitation</h3>
 					</div>
-					<p>Interactive wedding invitation with an animated envelope, countdown, calendar integration, and venue maps.</p>
+					<p>
+						Interactive wedding invitation with an animated envelope, countdown,
+						calendar integration, and venue maps.
+					</p>
+
 					<div class="website_meta">
-						<a class="website_url" href="https://giorgos-evgenia-reception.divouz.gr" target="_blank" rel="noopener">giorgos-evgenia-reception.divouz.gr</a>
-						<ul class="website_features" aria-label="Giorgos and Evgenia wedding invitation technologies">
-							<li class="website_feature--vibe"><span aria-hidden="true">✦</span> Vibe Coded</li>
+						<a
+							class="website_url"
+							href="https://giorgos-evgenia-reception.divouz.gr"
+							target="_blank"
+							rel="noopener"
+						>
+							giorgos-evgenia-reception.divouz.gr
+						</a>
+						<ul
+							class="website_features"
+							aria-label="Giorgos and Evgenia wedding invitation technologies"
+						>
+							<li class="website_feature--vibe">
+								<span aria-hidden="true">✦</span> Vibe Coded
+							</li>
 							<li>HTML</li>
 							<li>CSS</li>
 							<li>JavaScript</li>
@@ -155,18 +269,47 @@
 				</article>
 
 				<article class="website_item">
-					<a class="website_preview" href="https://panagiotis-chrysa.divouz.gr" target="_blank" rel="noopener" aria-label="Open Panagiotis and Chrysa wedding invitation" data-url="panagiotis-chrysa.divouz.gr">
-						<img src="images/websites/panagiotis-chrysa.divouz.gr.png" alt="Panagiotis and Chrysa wedding invitation preview" loading="lazy" onerror="this.remove()">
+					<a
+						class="website_preview"
+						href="https://panagiotis-chrysa.divouz.gr"
+						target="_blank"
+						rel="noopener"
+						aria-label="Open Panagiotis and Chrysa wedding invitation"
+						data-url="panagiotis-chrysa.divouz.gr"
+					>
+						<img
+							src="images/websites/panagiotis-chrysa.divouz.gr.png"
+							alt="Panagiotis and Chrysa wedding invitation preview"
+							loading="lazy"
+							onerror="this.remove()"
+						>
 						<strong class="website_preview_name">panagiotis-chrysa.divouz.gr</strong>
 					</a>
+
 					<div class="website_item_header">
 						<h3>Panagiotis &amp; Chrysa | Wedding Invitation</h3>
 					</div>
-					<p>Digital wedding invitation with an envelope opening, countdown, photo gallery, and ceremony and reception details.</p>
+					<p>
+						Digital wedding invitation with an envelope opening, countdown,
+						photo gallery, and ceremony and reception details.
+					</p>
+
 					<div class="website_meta">
-						<a class="website_url" href="https://panagiotis-chrysa.divouz.gr" target="_blank" rel="noopener">panagiotis-chrysa.divouz.gr</a>
-						<ul class="website_features" aria-label="Panagiotis and Chrysa wedding invitation technologies">
-							<li class="website_feature--vibe"><span aria-hidden="true">✦</span> Vibe Coded</li>
+						<a
+							class="website_url"
+							href="https://panagiotis-chrysa.divouz.gr"
+							target="_blank"
+							rel="noopener"
+						>
+							panagiotis-chrysa.divouz.gr
+						</a>
+						<ul
+							class="website_features"
+							aria-label="Panagiotis and Chrysa wedding invitation technologies"
+						>
+							<li class="website_feature--vibe">
+								<span aria-hidden="true">✦</span> Vibe Coded
+							</li>
 							<li>HTML</li>
 							<li>CSS</li>
 							<li>JavaScript</li>
@@ -175,16 +318,40 @@
 				</article>
 
 				<article class="website_item">
-					<a class="website_preview" href="https://abcvolos.gr" target="_blank" rel="noopener" aria-label="Open ABCstudio Volos website" data-url="abcvolos.gr">
-						<img src="images/websites/abcvolos.gr.png" alt="ABCstudio Volos website preview" loading="lazy" onerror="this.remove()">
+					<a
+						class="website_preview"
+						href="https://abcvolos.gr"
+						target="_blank"
+						rel="noopener"
+						aria-label="Open ABCstudio Volos website"
+						data-url="abcvolos.gr"
+					>
+						<img
+							src="images/websites/abcvolos.gr.png"
+							alt="ABCstudio Volos website preview"
+							loading="lazy"
+							onerror="this.remove()"
+						>
 						<strong class="website_preview_name">abcvolos.gr</strong>
 					</a>
+
 					<div class="website_item_header">
 						<h3>ABCstudio Volos</h3>
 					</div>
-					<p>Sound and lighting system sales, rentals, installations, and event support in Volos.</p>
+					<p>
+						Sound and lighting system sales, rentals, installations,
+						and event support in Volos.
+					</p>
+
 					<div class="website_meta">
-						<a class="website_url" href="https://abcvolos.gr" target="_blank" rel="noopener">abcvolos.gr</a>
+						<a
+							class="website_url"
+							href="https://abcvolos.gr"
+							target="_blank"
+							rel="noopener"
+						>
+							abcvolos.gr
+						</a>
 						<ul class="website_features" aria-label="ABCstudio Volos technologies">
 							<li>HTML</li>
 							<li>CSS</li>
@@ -194,16 +361,37 @@
 				</article>
 
 				<article class="website_item">
-					<a class="website_preview" href="https://starsound.gr" target="_blank" rel="noopener" aria-label="Open Star Sound Volos" data-url="starsound.gr">
-						<img src="images/websites/starsound.gr.png" alt="Star Sound Volos website preview" loading="lazy" onerror="this.remove()">
+					<a
+						class="website_preview"
+						href="https://starsound.gr"
+						target="_blank"
+						rel="noopener"
+						aria-label="Open Star Sound Volos"
+						data-url="starsound.gr"
+					>
+						<img
+							src="images/websites/starsound.gr.png"
+							alt="Star Sound Volos website preview"
+							loading="lazy"
+							onerror="this.remove()"
+						>
 						<strong class="website_preview_name">starsound.gr</strong>
 					</a>
+
 					<div class="website_item_header">
 						<h3>Star Sound | Volos</h3>
 					</div>
 					<p>Professional sound, lighting, studio, and event services in Volos.</p>
+
 					<div class="website_meta">
-						<a class="website_url" href="https://starsound.gr" target="_blank" rel="noopener">starsound.gr</a>
+						<a
+							class="website_url"
+							href="https://starsound.gr"
+							target="_blank"
+							rel="noopener"
+						>
+							starsound.gr
+						</a>
 						<ul class="website_features" aria-label="Star Sound technologies">
 							<li>HTML</li>
 							<li>CSS</li>
@@ -213,50 +401,127 @@
 				</article>
 
 				<article class="website_item">
-					<a class="website_preview" href="https://theosch.auth.gr/" target="_blank" rel="noopener" aria-label="Open Faculty of Theology website" data-url="theosch.auth.gr">
-						<img src="images/websites/theosch.auth.gr.png" alt="Faculty of Theology website preview" loading="lazy" onerror="this.remove()">
+					<a
+						class="website_preview"
+						href="https://theosch.auth.gr/"
+						target="_blank"
+						rel="noopener"
+						aria-label="Open Faculty of Theology website"
+						data-url="theosch.auth.gr"
+					>
+						<img
+							src="images/websites/theosch.auth.gr.png"
+							alt="Faculty of Theology website preview"
+							loading="lazy"
+							onerror="this.remove()"
+						>
 						<strong class="website_preview_name">theosch.auth.gr</strong>
 					</a>
+
 					<div class="website_item_header">
-						<h3>Κοσμητεία Θεολογικής Σχολής | Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης</h3>
+						<h3>
+							Κοσμητεία Θεολογικής Σχολής | Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης
+						</h3>
 					</div>
-					<p>Official website of the Faculty of Theology at Aristotle University of Thessaloniki.</p>
+					<p>
+						Official website of the Faculty of Theology at Aristotle University
+						of Thessaloniki.
+					</p>
+
 					<div class="website_meta">
-						<a class="website_url" href="https://theosch.auth.gr/" target="_blank" rel="noopener">theosch.auth.gr</a>
-						<ul class="website_features" aria-label="Faculty of Theology website technologies">
+						<a
+							class="website_url"
+							href="https://theosch.auth.gr/"
+							target="_blank"
+							rel="noopener"
+						>
+							theosch.auth.gr
+						</a>
+						<ul
+							class="website_features"
+							aria-label="Faculty of Theology website technologies"
+						>
 							<li>WordPress</li>
 						</ul>
 					</div>
 				</article>
 
 				<article class="website_item">
-					<a class="website_preview" href="https://www.orthopapadopoulos.gr" target="_blank" rel="noopener" aria-label="Open Orthopedic Surgeon Dimitrios V. Papadopoulos website" data-url="orthopapadopoulos.gr">
-						<img src="images/websites/orthopapadopoulos.gr.png" alt="Orthopedic Surgeon Dimitrios V. Papadopoulos website preview" loading="lazy" onerror="this.remove()">
+					<a
+						class="website_preview"
+						href="https://www.orthopapadopoulos.gr"
+						target="_blank"
+						rel="noopener"
+						aria-label="Open Orthopedic Surgeon Dimitrios V. Papadopoulos website"
+						data-url="orthopapadopoulos.gr"
+					>
+						<img
+							src="images/websites/orthopapadopoulos.gr.png"
+							alt="Orthopedic Surgeon Dimitrios V. Papadopoulos website preview"
+							loading="lazy"
+							onerror="this.remove()"
+						>
 						<strong class="website_preview_name">orthopapadopoulos.gr</strong>
 					</a>
+
 					<div class="website_item_header">
 						<h3>Δημήτριος Β. Παπαδόπουλος - Χειρουργός Ορθοπαιδικός</h3>
 					</div>
 					<p>Professional profile, surgical expertise, procedures, and clinic information.</p>
+
 					<div class="website_meta">
-						<a class="website_url" href="https://www.orthopapadopoulos.gr" target="_blank" rel="noopener">orthopapadopoulos.gr</a>
-						<ul class="website_features" aria-label="Orthopedic Surgeon website technologies">
+						<a
+							class="website_url"
+							href="https://www.orthopapadopoulos.gr"
+							target="_blank"
+							rel="noopener"
+						>
+							orthopapadopoulos.gr
+						</a>
+						<ul
+							class="website_features"
+							aria-label="Orthopedic Surgeon website technologies"
+						>
 							<li>WordPress</li>
 						</ul>
 					</div>
 				</article>
 
 				<article class="website_item">
-					<a class="website_preview" href="https://villamalenaskopelos.com" target="_blank" rel="noopener" aria-label="Open Villa Malena website" data-url="villamalenaskopelos.com">
-						<img src="images/websites/villamalenaskopelos.com.png" alt="Villa Malena website preview" loading="lazy" onerror="this.remove()">
+					<a
+						class="website_preview"
+						href="https://villamalenaskopelos.com"
+						target="_blank"
+						rel="noopener"
+						aria-label="Open Villa Malena website"
+						data-url="villamalenaskopelos.com"
+					>
+						<img
+							src="images/websites/villamalenaskopelos.com.png"
+							alt="Villa Malena website preview"
+							loading="lazy"
+							onerror="this.remove()"
+						>
 						<strong class="website_preview_name">villamalenaskopelos.com</strong>
 					</a>
+
 					<div class="website_item_header">
 						<h3>Villa Malena</h3>
 					</div>
-					<p>Holiday rental villa in Skopelos with accommodation details and direct contact.</p>
+					<p>
+						Holiday rental villa in Skopelos with accommodation details
+						and direct contact.
+					</p>
+
 					<div class="website_meta">
-						<a class="website_url" href="https://villamalenaskopelos.com" target="_blank" rel="noopener">villamalenaskopelos.com</a>
+						<a
+							class="website_url"
+							href="https://villamalenaskopelos.com"
+							target="_blank"
+							rel="noopener"
+						>
+							villamalenaskopelos.com
+						</a>
 						<ul class="website_features" aria-label="Villa Malena technologies">
 							<li>HTML</li>
 							<li>CSS</li>
@@ -266,16 +531,40 @@
 				</article>
 
 				<article class="website_item">
-					<a class="website_preview" href="https://meliaapartments.com" target="_blank" rel="noopener" aria-label="Open Melia Apartments website" data-url="meliaapartments.com">
-						<img src="images/websites/meliaapartments.com.png" alt="Melia Apartments website preview" loading="lazy" onerror="this.remove()">
+					<a
+						class="website_preview"
+						href="https://meliaapartments.com"
+						target="_blank"
+						rel="noopener"
+						aria-label="Open Melia Apartments website"
+						data-url="meliaapartments.com"
+					>
+						<img
+							src="images/websites/meliaapartments.com.png"
+							alt="Melia Apartments website preview"
+							loading="lazy"
+							onerror="this.remove()"
+						>
 						<strong class="website_preview_name">meliaapartments.com</strong>
 					</a>
+
 					<div class="website_item_header">
 						<h3>Melia Apartments</h3>
 					</div>
-					<p>Seafront apartment accommodation with studio information and direct contact.</p>
+					<p>
+						Seafront apartment accommodation with studio information
+						and direct contact.
+					</p>
+
 					<div class="website_meta">
-						<a class="website_url" href="https://meliaapartments.com" target="_blank" rel="noopener">meliaapartments.com</a>
+						<a
+							class="website_url"
+							href="https://meliaapartments.com"
+							target="_blank"
+							rel="noopener"
+						>
+							meliaapartments.com
+						</a>
 						<ul class="website_features" aria-label="Melia Apartments technologies">
 							<li>HTML</li>
 							<li>CSS</li>
@@ -284,7 +573,121 @@
 					</div>
 				</article>
 			</div>
-			<button class="websites_toggle" type="button" aria-expanded="false" aria-controls="websites_grid" hidden>Show more</button>
+
+			<button
+				class="websites_toggle"
+				type="button"
+				aria-expanded="false"
+				aria-controls="websites_grid"
+				hidden
+			>
+				Show more
+			</button>
+		</section>
+
+		<!-- Game development -->
+		<section class="games_card" id="games" tabindex="-1" aria-labelledby="games_title">
+			<header class="games_header">
+				<h2 id="games_title">Game Development</h2>
+			</header>
+
+			<div class="games_grid">
+				<article class="game_item">
+					<div class="game_poster game_poster--unity">
+						<img
+							src="images/games/night-defenders.png"
+							alt="Isometric co-op gameplay showing three players in a lit forest environment"
+							width="1508"
+							height="848"
+							loading="lazy"
+						>
+						<div class="game_brand">
+							<img
+								class="game_engine_logo"
+								src="images/games/engines/unity.svg"
+								alt="Unity"
+								width="376"
+								height="186"
+								loading="lazy"
+							>
+						</div>
+					</div>
+
+					<h3>Isometric co-op game</h3>
+					<ul class="game_technologies" aria-label="Unity project technologies">
+						<li>Unity</li>
+						<li>C#</li>
+						<li>Co-op</li>
+						<li>Multiplayer</li>
+						<li>Netcode for GameObjects</li>
+						<li>UI Toolkit</li>
+						<li>2D Isometric</li>
+					</ul>
+				</article>
+
+				<article class="game_item">
+					<div class="game_poster game_poster--love">
+						<img
+							src="images/games/tower-defence.png"
+							alt="Top-down 2D gameplay showing a battlefield and defensive structures"
+							width="1082"
+							height="541"
+							loading="lazy"
+						>
+						<div class="game_brand">
+							<img
+								class="game_engine_logo"
+								src="images/games/engines/love.png"
+								alt="LÖVE"
+								width="441"
+								height="174"
+								loading="lazy"
+							>
+						</div>
+					</div>
+
+					<h3>Top-down 2D defense game</h3>
+					<ul class="game_technologies" aria-label="2D defense game technologies">
+						<li>LÖVE</li>
+						<li>Lua</li>
+						<li>Co-op</li>
+						<li>lua-enet</li>
+						<li>2D Top-down</li>
+					</ul>
+				</article>
+
+				<article class="game_item">
+					<div class="game_poster game_poster--pixi">
+						<img
+							src="images/games/slot-machine.png"
+							alt="Slot machine project showing colorful reels and winning paylines"
+							width="1204"
+							height="797"
+							loading="lazy"
+						>
+						<div class="game_brand">
+							<img
+								class="game_engine_logo"
+								src="images/games/engines/pixijs.svg"
+								alt="PixiJS"
+								width="735"
+								height="289"
+								loading="lazy"
+							>
+						</div>
+					</div>
+
+					<h3>Browser-based slot machine</h3>
+					<ul class="game_technologies" aria-label="Slot machine technologies">
+						<li>PixiJS</li>
+						<li>Responsive</li>
+						<li>Paytable</li>
+						<li>Free Spins</li>
+						<li>Buy Bonus</li>
+						<li>Autoplay</li>
+					</ul>
+				</article>
+			</div>
 		</section>
 	</body>
 </html>
