@@ -5,12 +5,13 @@ const websiteCards = [...websitesGrid.querySelectorAll(".website_item")];
 function updateWebsiteVisibility() {
 	const expanded = websitesToggle.getAttribute("aria-expanded") === "true";
 	const columns = getComputedStyle(websitesGrid).gridTemplateColumns.split(/\s+/).length;
+	const visibleCount = Math.max(2, columns);
 
 	websiteCards.forEach((card, index) => {
-		card.hidden = !expanded && index >= columns;
+		card.hidden = !expanded && index >= visibleCount;
 	});
-	websitesToggle.hidden = websiteCards.length <= columns;
-	websitesToggle.textContent = expanded ? "Show fewer websites" : "Show more websites";
+	websitesToggle.hidden = websiteCards.length <= visibleCount;
+	websitesToggle.textContent = expanded ? "Show less" : "Show more";
 }
 
 websitesToggle.addEventListener("click", () => {
