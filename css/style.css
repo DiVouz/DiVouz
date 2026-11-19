@@ -95,6 +95,82 @@ a {
 	overflow: hidden;
 }
 
+@keyframes profile-reveal {
+	from {
+		opacity: 0;
+		transform: translateY(12px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.scroll-reveal--pending {
+	opacity: 0;
+}
+
+.scroll-reveal--visible {
+	animation: profile-reveal 450ms ease-out backwards;
+}
+
+.scroll-reveal--visible :is(.lualua_header, .websites_header) {
+	animation: profile-reveal 450ms 80ms ease-out backwards;
+}
+
+.scroll-reveal--visible .lualua_content > p {
+	animation: profile-reveal 450ms 160ms ease-out backwards;
+}
+
+.scroll-reveal--visible .lualua_features {
+	animation: profile-reveal 400ms 240ms ease-out backwards;
+}
+
+.scroll-reveal--visible .website_item {
+	animation: profile-reveal 400ms 240ms ease-out backwards;
+}
+
+.scroll-reveal--visible .website_item:nth-child(2) { animation-delay: 300ms; }
+.scroll-reveal--visible .website_item:nth-child(3) { animation-delay: 360ms; }
+
+.scroll-reveal--visible .websites_toggle {
+	animation: profile-reveal 400ms 420ms ease-out backwards;
+}
+
+.profile {
+	animation: profile-reveal 450ms ease-out backwards;
+}
+
+.profile .identity_row {
+	animation: profile-reveal 450ms 80ms ease-out backwards;
+}
+
+.profile .intro {
+	animation: profile-reveal 450ms 160ms ease-out backwards;
+}
+
+.profile .expertise > span {
+	animation: profile-reveal 400ms 240ms ease-out backwards;
+}
+
+.profile .expertise > span:nth-child(2) {
+	animation-delay: 300ms;
+}
+
+.profile .expertise > span:nth-child(3) {
+	animation-delay: 360ms;
+}
+
+:is(.profile, .scroll-reveal--visible) .social_links a {
+	animation: profile-reveal 400ms 360ms ease-out backwards;
+}
+
+:is(.profile, .scroll-reveal--visible) .social_links a:nth-child(2) { animation-delay: 400ms; }
+:is(.profile, .scroll-reveal--visible) .social_links a:nth-child(3) { animation-delay: 440ms; }
+:is(.profile, .scroll-reveal--visible) .social_links a:nth-child(4) { animation-delay: 480ms; }
+:is(.profile, .scroll-reveal--visible) .social_links a:nth-child(5) { animation-delay: 520ms; }
+:is(.profile, .scroll-reveal--visible) .social_links a:nth-child(6) { animation-delay: 560ms; }
+
 .profile::before {
 	content: "root@divouz:~$ profile";
 	position: absolute;
@@ -776,6 +852,10 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
+	.scroll-reveal--pending {
+		opacity: 1;
+	}
+
 	*,
 	::before,
 	::after {
