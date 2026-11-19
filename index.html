@@ -21,6 +21,7 @@
 		<title>Dimitris Vouzaxakis</title>
 
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script src="js/websites.js" defer></script>
 	</head>
 
 	<body>
@@ -119,19 +120,62 @@
 				<h2 id="websites_title">Websites</h2>
 			</header>
 
-			<div class="websites_grid">
+			<div class="websites_grid" id="websites_grid">
 				<article class="website_item">
-					<div class="website_preview website_preview--wip" aria-label="ABCstudio Volos website is a work in progress">
-						<img src="images/websites/abcstudio-volos.png" alt="ABCstudio Volos website preview" loading="lazy" onerror="this.remove()">
-						<strong class="website_preview_name">ABCstudio</strong>
+					<a class="website_preview" href="https://giorgos-evgenia-reception.divouz.gr" target="_blank" rel="noopener" aria-label="Open Giorgos and Evgenia wedding invitation" data-url="giorgos-evgenia-reception.divouz.gr">
+						<img src="images/websites/giorgos-evgenia-reception.divouz.gr.png" alt="Giorgos and Evgenia wedding invitation preview" loading="lazy" onerror="this.remove()">
+						<strong class="website_preview_name">giorgos-evgenia-reception.divouz.gr</strong>
+					</a>
+					<div class="website_item_header">
+						<h3>Giorgos &amp; Evgenia | Wedding Invitation</h3>
 					</div>
+					<p>Interactive wedding invitation with an animated envelope, countdown, calendar integration, and venue maps.</p>
+					<div class="website_meta">
+						<a class="website_url" href="https://giorgos-evgenia-reception.divouz.gr" target="_blank" rel="noopener">giorgos-evgenia-reception.divouz.gr</a>
+						<ul class="website_features" aria-label="Giorgos and Evgenia wedding invitation technologies">
+							<li class="website_feature--vibe"><span aria-hidden="true">✦</span> Vibe Coded</li>
+							<li>HTML</li>
+							<li>CSS</li>
+							<li>JavaScript</li>
+						</ul>
+					</div>
+				</article>
+
+				<article class="website_item">
+					<a class="website_preview" href="https://panagiotis-chrysa.divouz.gr" target="_blank" rel="noopener" aria-label="Open Panagiotis and Chrysa wedding invitation" data-url="panagiotis-chrysa.divouz.gr">
+						<img src="images/websites/panagiotis-chrysa.divouz.gr.png" alt="Panagiotis and Chrysa wedding invitation preview" loading="lazy" onerror="this.remove()">
+						<strong class="website_preview_name">panagiotis-chrysa.divouz.gr</strong>
+					</a>
+					<div class="website_item_header">
+						<h3>Panagiotis &amp; Chrysa | Wedding Invitation</h3>
+					</div>
+					<p>Digital wedding invitation with an envelope opening, countdown, photo gallery, and ceremony and reception details.</p>
+					<div class="website_meta">
+						<a class="website_url" href="https://panagiotis-chrysa.divouz.gr" target="_blank" rel="noopener">panagiotis-chrysa.divouz.gr</a>
+						<ul class="website_features" aria-label="Panagiotis and Chrysa wedding invitation technologies">
+							<li class="website_feature--vibe"><span aria-hidden="true">✦</span> Vibe Coded</li>
+							<li>HTML</li>
+							<li>CSS</li>
+							<li>JavaScript</li>
+						</ul>
+					</div>
+				</article>
+
+				<article class="website_item">
+					<a class="website_preview" href="https://abcvolos.gr" target="_blank" rel="noopener" aria-label="Open ABCstudio Volos website" data-url="abcvolos.gr">
+						<img src="images/websites/abcvolos.gr.png" alt="ABCstudio Volos website preview" loading="lazy" onerror="this.remove()">
+						<strong class="website_preview_name">abcvolos.gr</strong>
+					</a>
 					<div class="website_item_header">
 						<h3>ABCstudio Volos</h3>
 					</div>
-					<p>Work in progress...</p>
+					<p>Sound and lighting system sales, rentals, installations, and event support in Volos.</p>
 					<div class="website_meta">
-						<ul class="website_features" aria-label="ABCstudio Volos status">
-							<li>In Development</li>
+						<a class="website_url" href="https://abcvolos.gr" target="_blank" rel="noopener">abcvolos.gr</a>
+						<ul class="website_features" aria-label="ABCstudio Volos technologies">
+							<li>HTML</li>
+							<li>CSS</li>
+							<li>JavaScript</li>
 						</ul>
 					</div>
 				</article>
@@ -227,6 +271,7 @@
 					</div>
 				</article>
 			</div>
+			<button class="websites_toggle" type="button" aria-expanded="false" aria-controls="websites_grid" hidden>Show more websites</button>
 		</section>
 	</body>
 </html>
